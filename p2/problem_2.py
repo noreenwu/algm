@@ -37,11 +37,34 @@ def find_pivot(input_list, low, high):
         i += 1
 
 
+def bin_search_det(input_list, low, high, number):
+    pass
+
+
+def bin_search(input_list, number):
+    p = find_pivot(ary, 0, len(ary)-1)
+    print("pivot index was {}".format(p))    
+
+    ## once the pivot is identified, determine whether to search
+    ## to the left of the pivot or to the right of it
+    ## if target is > item at 0th location, then search left side 
+    ## (delimited by pivot) 0..pivot
+    ## but if target is < item at 0th location, then search
+    ## from pivot+1st location through end of array pivot+1..n-1
+
+    if number > input_list[0]:
+        bin_search_det(input_list, 0, p, number)
+
+    else:
+        bin_search_det(input_list, p+1, len(input_list)-1, number)
+
+
 def linear_search(input_list, number):
     for index, element in enumerate(input_list):
         if element == number:
             return index
     return -1
+
 
 def test_function(test_case):
     input_list = test_case[0]
@@ -54,7 +77,13 @@ def test_function(test_case):
 
 ary = [6, 7, 8, 9, 10, 1, 2, 3, 4]
 ary2 = [8, 1, 2, 3, 4, 5, 6, 7]
-find_pivot(ary2, 0, len(ary2)-1)
+
+bin_search(ary, 6)
+# p = find_pivot(ary2, 0, len(ary2)-1)
+# print("pivot index was {}".format(p))
+
+
+
 # test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 6])
 # test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
 # test_function([[6, 7, 8, 1, 2, 3, 4], 8])
