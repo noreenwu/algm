@@ -69,5 +69,5 @@ def test_function(test_case):
 
 # print(rearrange_digits([7, 8, 9, 5, 1, 2]))
 test_function([[1, 2, 3, 4, 5], [542, 31]])
-test_case = [[4, 6, 2, 5, 9, 8], [964, 852]]
-
+test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
+test_function([[2, 6, 1, 5, 3], [631, 52]])
