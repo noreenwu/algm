@@ -9,19 +9,30 @@ class TrieNode:
         self.children[char] = TrieNode()
         
         
-    def suffixes(self, suffix = ''):
+    def suffixes(self, suffix = '', slist = []):
         ## Recursive function that collects the suffix for 
         ## all complete words below this point
-        current_node = self
         
-        res = ''
-        for char in suffix:
-            print (char)
-            res += char
-            current_node = current_node.children[char]
+#         if self.is_word == True:
+#             if len(suffix) > 0:
+#                 slist.append(suffix)                
+
+    
+        if self.children:
+            if self.is_word == True:
+                if len(suffix) > 0:
+                    slist.append(suffix)   
             
-        print(res)
-        return "hello"
+            for k in self.children:
+                print("key {}".format(k))
+                print("suffix so far {}".format(suffix + k))
+                self.children[k].suffixes(suffix + k, slist)
+        else:
+            slist.append(suffix)
+            return
+            
+        print("slist is {}".format(slist))
+        return slist
 
 MyTrie2 = Trie()
 wordList = [ "ant", "anthology", "antagonist"]
