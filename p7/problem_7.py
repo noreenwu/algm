@@ -28,7 +28,7 @@ class RouteTrie:
 
         for a in path_segs:
             if a not in current_node.children:
-                return False
+                return None
             current_node = current_node.children[a]
             
         return current_node.handler   

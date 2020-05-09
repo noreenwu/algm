@@ -60,9 +60,4 @@ new_router.add_handler("/", "root")
 
 print("\tHandler: {}\n".format(new_router.lookup("")))
 
-
-# MyTrie = RouteTrie()
-# new_route = "/hello/there"
-# MyTrie.insert(new_route)
-
-# print(MyTrie.find("/hello/there"))
+print("\tthis route is not defined and lookup returns: {}\n".format(new_router.lookup("/something/else")))
