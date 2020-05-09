@@ -78,6 +78,7 @@ test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
 test_function([[2, 6, 1, 5, 3], [631, 52]])
 test_function([[9, 8, 1, 2, 3], [931, 82]])
 test_function([[2, 1], [2, 1]])                 # very small array
+test_function([[2, 1, 3], [2, 31]])             # very small array
 test_function([[], [0, 0]])                     # 0 size array
 test_function([[8], [8, 0]])                    # array size 1
 
