@@ -101,22 +101,6 @@ def test_function(test_case):
         print("Fail")
 
 
-# ary = [6, 7, 8, 9, 10, 1, 2, 3, 4]
-# ary2 = [8, 1, 2, 3, 4, 5, 6, 7]
-
-# print(linear_search(ary, 8))
-# print(rotated_array_search(ary, 8))
-# bin_search(ary, 8)
-# bin_search(ary, 9)
-# bin_search(ary, 7)
-
-# bin_search(ary, 1)
-# bin_search(ary, 10)
-# bin_search(ary, 4)
-# p = find_pivot(ary2, 0, len(ary2)-1)
-# print("pivot index was {}".format(p))
-
-
 
 test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 6])
 test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
