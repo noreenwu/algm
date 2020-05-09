@@ -10,27 +10,22 @@ def rotated_array_search(input_list, number):
     pass
 
 def find_pivot(input_list, low, high):
-    print("pivot high {}".format(input_list[high]))
-
+    # print("pivot high {}".format(input_list[high]))
     mid = (low + high) // 2
     
-
-
     i = 0
     while low <= high and i < 10:
         if input_list[mid] > input_list[mid+1]:
-            print("got the pivot: {}".format(input_list[mid]))
+            # print("got the pivot: {}".format(input_list[mid]))
             return mid        
 
         # did not find pivot yet: search left or right side of array chunk
         if input_list[mid] < input_list[high]:
             # then we must be on the right side of the pivot: check left
-            print("checking left")
             high = mid
             mid = (low + high) // 2
         else:
             # check right
-            print("checking right")
             low = mid + 1
             mid = (low + high) // 2
 
@@ -55,7 +50,7 @@ def bin_search_det(input_list, low, high, number):
 
         i += 1
 
-    print("i is {}".format(i))
+    # print("i is {}".format(i))
     if input_list[mid] == number:
         return mid
 
@@ -64,7 +59,7 @@ def bin_search_det(input_list, low, high, number):
 
 def rotated_array_search(input_list, number):
     p = find_pivot(input_list, 0, len(input_list)-1)
-    print("pivot index was {}".format(p))    
+    # print("pivot index was {}".format(p))    
 
     ## once the pivot is identified, determine whether to search
     ## to the left of the pivot or to the right of it
@@ -78,10 +73,10 @@ def rotated_array_search(input_list, number):
         res = bin_search_det(input_list, 0, p, number)
 
     else:
-        print("will search the array from {} to {}".format(p+1, len(input_list)-1))
+        # print("will search the array from {} to {}".format(p+1, len(input_list)-1))
         res = bin_search_det(input_list, p+1, len(input_list)-1, number)
 
-    print("and the result was {}".format(res))
+    # print("and the result was {}".format(res))
     return res
 
 def linear_search(input_list, number):
@@ -102,8 +97,9 @@ def test_function(test_case):
 
 
 
-test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 6])
-test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
-test_function([[6, 7, 8, 1, 2, 3, 4], 8])
+test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 6])  # first element
+test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])  # first element before rotation
+test_function([[6, 7, 8, 1, 2, 3, 4], 8])         # highest element, last before rotation
 test_function([[6, 7, 8, 1, 2, 3, 4], 1])
-test_function([[6, 7, 8, 1, 2, 3, 4], 10])
+test_function([[6, 7, 8, 1, 2, 3, 4], 10])        # -1 (not found)
+test_function([[6, 7, 8, 1, 2, 3, 4], 4])         # last element
