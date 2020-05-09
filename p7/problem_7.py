@@ -1,13 +1,11 @@
-# A RouteTrie will store our routes and their associated handlers
+# A RouteTrie stores our routes and their associated handlers
 class RouteTrie:
     def __init__(self):
-        # Initialize the trie with an root node and a handler, this is the root path or home page node
         self.root = RouteTrieNode()
 
     def insert(self, path_segs, handler):
-        # Similar to our previous example you will want to recursively add nodes
-        # Make sure you assign the handler to only the leaf (deepest) node of this path
-
+        # Recursively add nodes that are specified in path_segs.
+        # The handler is assigned to only the leaf (deepest) node of this path
         current_node = self.root
 
         for a in path_segs:
@@ -25,12 +23,12 @@ class RouteTrie:
 
         for a in path_segs:
             if a not in current_node.children:
-                return None
+                return None          # match not found
             current_node = current_node.children[a]
             
         return current_node.handler   
 
-# A RouteTrieNode will be similar to our autocomplete TrieNode... with one additional element, a handler.
+# A RouteTrieNode stores an associated handler.
 class RouteTrieNode:
     def __init__(self, handler="handler"):
         # Initialize the node with children as before, plus a handler
