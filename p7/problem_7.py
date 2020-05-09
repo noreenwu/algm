@@ -4,7 +4,7 @@ class RouteTrie:
         # Initialize the trie with an root node and a handler, this is the root path or home page node
         self.root = RouteTrieNode()
 
-    def insert(self, path):
+    def insert(self, path, handler):
         # Similar to our previous example you will want to recursively add nodes
         # Make sure you assign the handler to only the leaf (deepest) node of this path
 
@@ -17,6 +17,7 @@ class RouteTrie:
                 current_node.children[a] = RouteTrieNode()
             current_node = current_node.children[a]
             
+        current_node.handler = handler            
         current_node.is_route = True
 
     def find(self, path):
@@ -35,7 +36,7 @@ class RouteTrie:
 
 # A RouteTrieNode will be similar to our autocomplete TrieNode... with one additional element, a handler.
 class RouteTrieNode:
-    def __init__(self):
+    def __init__(self, handler="handler"):
         # Initialize the node with children as before, plus a handler
         self.is_route = False
         self.children = {}
@@ -46,8 +47,4 @@ class RouteTrieNode:
         self.children[route] = RouteTrieNode()
         self.handler = handler
 
-MyTrie = RouteTrie()
-new_route = "/hello/there"
-MyTrie.insert(new_route)
 
-print(MyTrie.find("/hello/there"))
