@@ -41,6 +41,12 @@ def rearrange_digits(input_list):
        (int),(int): Two maximum sums
     """
     
+    if len(input_list) == 0:
+        return [0, 0]
+    if len(input_list) == 1:
+        input_list.append(0)
+        return input_list
+        
     sorted_input_list = merge_sort(input_list)
     num1 = ''
     num2 = ''
@@ -67,7 +73,11 @@ def test_function(test_case):
         print("Fail")
 
 
-# print(rearrange_digits([7, 8, 9, 5, 1, 2]))
 test_function([[1, 2, 3, 4, 5], [542, 31]])
 test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
 test_function([[2, 6, 1, 5, 3], [631, 52]])
+test_function([[9, 8, 1, 2, 3], [931, 82]])
+test_function([[2, 1], [2, 1]])                 # very small array
+test_function([[], [0, 0]])                     # 0 size array
+test_function([[8], [8, 0]])                    # array size 1
+
