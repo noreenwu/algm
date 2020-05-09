@@ -11,7 +11,9 @@ class Router:
         # Add a handler for a path
         # You will need to split the path and pass the pass parts
         # as a list to the RouteTrie
-        self.routes.insert(path, handler)
+        path_segs = self.split_path(path)
+        print("adding {}".format(path_segs))
+        self.routes.insert(path_segs, handler)
 
     def lookup(self, path):
         # lookup path (by parts) and return the associated handler
@@ -19,8 +21,9 @@ class Router:
         # return the "not found" handler if you added one
         # bonus points if a path works with and without a trailing slash
         # e.g. /about and /about/ both return the /about handler
-        print(self.split_path(path))
-        return self.routes.find(path)
+        path_segs = self.split_path(path)
+        print("looking up {}".format(path_segs))
+        return self.routes.find(path_segs)
 
     def split_path(self, path):
         # you need to split the path into parts for 

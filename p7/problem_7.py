@@ -4,14 +4,14 @@ class RouteTrie:
         # Initialize the trie with an root node and a handler, this is the root path or home page node
         self.root = RouteTrieNode()
 
-    def insert(self, path, handler):
+    def insert(self, path_segs, handler):
         # Similar to our previous example you will want to recursively add nodes
         # Make sure you assign the handler to only the leaf (deepest) node of this path
 
-        ary = path.split('/')
+        # ary = path.split('/')
         current_node = self.root
 
-        for a in ary:
+        for a in path_segs:
             print("handling {}".format(a))
             if a not in current_node.children:
                 current_node.children[a] = RouteTrieNode()
@@ -20,14 +20,14 @@ class RouteTrie:
         current_node.handler = handler            
         current_node.is_route = True
 
-    def find(self, path):
+    def find(self, path_segs):
         # Starting at the root, navigate the Trie to find a match for this path
         # Return the handler for a match, or None for no match
         current_node = self.root
         
-        ary = path.split('/')
+        # ary = path.split('/')
 
-        for a in ary:
+        for a in path_segs:
             if a not in current_node.children:
                 return False
             current_node = current_node.children[a]
