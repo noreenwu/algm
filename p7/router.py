@@ -32,10 +32,13 @@ class Router:
         if len(path) > 0:
             if path[-1:] == '/':
                 path = path[:-1]
-            if path[0] == '/':
+            if len(path) > 0 and path[0] == '/':
                 path = path[1:]
 
         path_segs = path.split('/')
+        if len(path_segs) == 0:
+            path_segs = [ '/']
+
         return path_segs
 
 
@@ -43,7 +46,20 @@ new_router = Router()
 
 new_router.add_handler("/hello/there", "hihandler")
 
-print(new_router.lookup("/hello/there"))
+print("\tHandler: {}\n".format(new_router.lookup("/hello/there")))
+
+new_router.add_handler("/hello/about", "abouthandler")
+
+print("\tHandler: {}\n".format(new_router.lookup("/hello/about")))
+
+new_router.add_handler("/12/14/19/news", "newshandler")
+
+print("\tHandler: {}\n".format(new_router.lookup("/12/14/19/news")))
+
+new_router.add_handler("/", "root")
+
+print("\tHandler: {}\n".format(new_router.lookup("")))
+
 
 # MyTrie = RouteTrie()
 # new_route = "/hello/there"

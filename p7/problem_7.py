@@ -12,7 +12,6 @@ class RouteTrie:
         current_node = self.root
 
         for a in path_segs:
-            print("handling {}".format(a))
             if a not in current_node.children:
                 current_node.children[a] = RouteTrieNode()
             current_node = current_node.children[a]
@@ -32,7 +31,7 @@ class RouteTrie:
                 return False
             current_node = current_node.children[a]
             
-        return current_node        
+        return current_node.handler   
 
 # A RouteTrieNode will be similar to our autocomplete TrieNode... with one additional element, a handler.
 class RouteTrieNode:
