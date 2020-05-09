@@ -1,3 +1,10 @@
+def display_answer(num):
+    """
+    Uniformly display the provided answer and return it
+    """
+    print("\tAnswer: {}".format(num))
+    return num
+
 def sqrt(number):
     """
     Calculate the floored square root of a number
@@ -7,9 +14,10 @@ def sqrt(number):
     Returns:
        int: Floored Square Root
     """
-    if number == 0 or number == 1:
-        return number
+    print("Find sqrt of {}:".format(number))
 
+    if number == 0 or number == 1:
+        return display_answer(number)
         
     lower = 1
     mid = number // 2
@@ -17,28 +25,22 @@ def sqrt(number):
 
     i = 0
     while lower <= upper and i < 10:
-        print("trying {} with lower {} and upper {}".format(mid, lower, upper))
         if mid * mid == number:
-            return mid
+            return display_answer(mid)
 
         if mid * mid  < number:
-            print("\twe are under")
             lower = mid+1
         if mid * mid > number: 
-            print("\twe are over: look in lower half")
             upper = mid-1
 
         mid = (upper + lower) // 2
-        print("\tnew mid is {} in range {} to {}".format(mid, lower, upper))
         i += 1
 
+    return display_answer(mid)
 
-    print("lower {} mid {} upper {}".format(lower, mid, upper))
-    return mid
-
-print ("Pass" if  (6 == sqrt(36)) else "Fail")
-print ("Pass" if  (0 == sqrt(0)) else "Fail")
-print ("Pass" if  (4 == sqrt(16)) else "Fail")
-print ("Pass" if  (1 == sqrt(1)) else "Fail")
-print ("Pass" if  (5 == sqrt(27)) else "Fail")
-print ("Pass" if  (25 == sqrt(625)) else "Fail")
+print ("Pass\n" if  (6 == sqrt(36)) else "Fail")
+print ("Pass\n" if  (0 == sqrt(0)) else "Fail")
+print ("Pass\n" if  (4 == sqrt(16)) else "Fail")
+print ("Pass\n" if  (1 == sqrt(1)) else "Fail")
+print ("Pass\n" if  (5 == sqrt(27)) else "Fail")
+print ("Pass\n" if  (25 == sqrt(625)) else "Fail")
