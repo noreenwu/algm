@@ -11,7 +11,7 @@ over O(N). But the problem must be divided into 2 steps: 1) find the "pivot" or 
 last element in the array prior to rotation and 2) binary search either
 the subarray to the left or to the right of the pivot. This may be 
 determined by comparing the searched for element with the very first
-element of the array. If the number is larger than the first element, the
+element of the array. If the number is larger than or equal to the first element, the
 left side of the pivot needs to be searched; otherwise the right
 side. This 2nd stage binary search also takes log N time, so 2 log N
 processes, or essentially O(log N) together.
