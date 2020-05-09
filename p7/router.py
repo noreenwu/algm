@@ -2,10 +2,11 @@ from problem_7 import RouteTrie, RouteTrieNode
 
 # The Router class will wrap the Trie and handle 
 class Router:
-    def __init__(self):
+    def __init__(self, homepage='homepagehandler'):
         # Create a new RouteTrie for holding our routes
         # You could also add a handler for 404 page not found responses as well!
         self.routes = RouteTrie()
+        self.add_handler('/', homepage)
 
     def add_handler(self, path, handler):
         # Add a handler for a path
@@ -23,6 +24,9 @@ class Router:
         # e.g. /about and /about/ both return the /about handler
         path_segs = self.split_path(path)
         print("looking up {}".format(path_segs))
+        if self.routes.find(path_segs) is None:
+            return "not found handler"
+
         return self.routes.find(path_segs)
 
     def split_path(self, path):
@@ -56,7 +60,7 @@ new_router.add_handler("/12/14/19/news", "newshandler")
 
 print("\tHandler: {}\n".format(new_router.lookup("/12/14/19/news")))
 
-new_router.add_handler("/", "root")
+# new_router.add_handler("/", "homepagehandler")
 
 print("\tHandler: {}\n".format(new_router.lookup("")))
 
