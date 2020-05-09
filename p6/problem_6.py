@@ -19,8 +19,8 @@ def get_min_max(ints):
 ## Example Test Case of Ten Integers
 import random
 
-def test_case():
-    l = [i for i in range(0, 10)]  # a list containing 0 - 9
+def test_case(size=10):
+    l = [i for i in range(0, size)]  # a list containing 0 - 9
     random.shuffle(l)
     return l
 
@@ -36,3 +36,18 @@ print ("Pass" if ((0, 9) == get_min_max(l)) else "Fail")
 l = test_case()
 print(l)
 print ("Pass" if ((0, 9) == get_min_max(l)) else "Fail")
+
+size = 5
+l = test_case(size)
+print(l)
+print ("Pass" if ((0, size-1) == get_min_max(l)) else "Fail")
+
+size = 2
+l = test_case(size)
+print(l)
+print ("Pass" if ((0, size-1) == get_min_max(l)) else "Fail")
+
+size = 1
+l = test_case(size)
+print(l)
+print ("Pass" if ((0, size-1) == get_min_max(l)) else "Fail")
