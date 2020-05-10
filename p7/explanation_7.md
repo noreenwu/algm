@@ -74,4 +74,7 @@ the representation and retrieval of endpoints, as looking for
 the path segments is similar to doing a cd into a subdirectory,
 one at a time. A hash would likely store the entire path
 as a key and would not allow as graceful a printout of all
-endpoints, if one were desired. 
+endpoints, if one were desired. Also, in the case of a news
+site, where a lot of articles may be under the same date structure
+for each news day, the space savings will accumulate.
+
