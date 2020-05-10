@@ -10,3 +10,8 @@ in O(N log N) time. Merge sort will do this and once completed, doing
 the integer construction in O(N) time will result in a final running
 time of O(N log N) + O(N) which is still O(N log N), since O(N log N)
 dominates the expression.
+
+## Space Complexity
+
+Merge sort requires an additional O(N) array, as the values are
+copied into subarrays which are then merged back together.
