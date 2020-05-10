@@ -10,6 +10,13 @@ swapped with the value in the "next 0" or "next 2" position. This goes on
 until the traversal is complete, at which point the array is in sorted order. 
 
 This single traversal may take less than O(N) if "2" values are encountered 
-during traversal, allowing the "next 2" position to move down from the last element in the list. We don't need to traverse the list past the "next 2" position, because everything above that point is a "2" and already in the right place.
+during traversal, allowing the "next 2" position to move down from the last element
+in the list. We don't need to traverse the list past the "next 2" position, because 
+everything above that point is a "2" and already in the right place.
+
+## Space Complexity
+
+This is an in-place algorithm. It does not require any additional space
+to walk through and swap values within the array.
 
 
