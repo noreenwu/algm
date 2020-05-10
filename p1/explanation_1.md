@@ -17,3 +17,10 @@ two spaces. Repeat halving the range of numbers to search, always checking
 if the midpoint of that range is the answer. This way of continuously diminishing
 the search space by half means that we will get the solution in O(log N) tries.
 
+
+# Space Complexity
+
+No additional storage is required to perform this algorithm, other than 
+the minimal space required to store the working variables, lower, upper, mid.
+It can be said that the space complexity is O(1), as it is constant, no
+matter how large the input number may get. 
