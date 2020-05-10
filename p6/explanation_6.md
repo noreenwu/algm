@@ -7,7 +7,7 @@ setting an initial min and an initial max value to the first element
 in the array and then simply traverse the array once, checking to see if 
 each value has beaten either the min or the max. Because we only traverse
 the array once, the running time is O(N). Additional space for the
-array was not required: O(N).
+array was not required: O(1).
 
 
 
