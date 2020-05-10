@@ -42,7 +42,6 @@ def sqrt(number):
         mid = (upper + lower) // 2
         i += 1
 
-
     return display_answer(mid)
 
 print ("Pass\n" if  (6 == sqrt(36)) else "Fail")
