@@ -16,3 +16,7 @@ left side of the pivot needs to be searched; otherwise the right
 side. This 2nd stage binary search also takes log N time, so 2 log N
 processes, or essentially O(log N) together.
 
+## Space complexity
+
+Since all of the searching is done in the original array, no significant additional
+space is required and the search complexity is O(1).
